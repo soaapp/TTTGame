@@ -12,4 +12,18 @@ struct AppStrings {
     static let vsHuman = "VS Human"
     static let online = "Online"
     static let appName = "Tic Tac Toe"
+	
+	static let player1 = "Player 1"
+	static let player2 = "Player 2"
+	static let computer = "Computer"
+	
+	static let rematch = "Rematch"
+	
+	static let gameHasFinished = "The game has finished!"
+	static let gameHasDraw = "It's a draw."
+	static let gameQuit = "Player has left the game."
+	static let waitingForPlayer = "Waiting for player to join..."
+	
+	static let tryRematch = "Try Rematch"
+	
 }

@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct GameStatusView: View {
+	
+	@ObservedObject var viewModel: GameViewModel
+	
     var body: some View {
-        Text("Game Status Placeholder Text")
+		Text(viewModel.gameNotification)
             .font(.system(size: 24, weight: .bold, design: .rounded))
             .foregroundColor(.white)
     }
 }
 
 #Preview {
-    GameStatusView()
+	GameStatusView(viewModel: GameViewModel(with: .vsCPU))
         .background(.gray)
 }

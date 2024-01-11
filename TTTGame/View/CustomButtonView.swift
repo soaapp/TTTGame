@@ -34,7 +34,7 @@ struct CustomButtonView: View {
         }
         .padding(.horizontal, 20)
         .fullScreenCover(isPresented: $isPresented, content: {
-            GameView(mode: mode.self)
+            GameView(viewModel: GameViewModel(with: mode))
         })
     }
 }

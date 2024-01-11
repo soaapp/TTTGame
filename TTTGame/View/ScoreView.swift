@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ScoreView: View {
+	
+	@ObservedObject var viewModel: GameViewModel
+	
     var body: some View {
         HStack {
-            Text("Player 1: 0")
+			Text("\(viewModel.player1Name): \(viewModel.player1Score)")
             Spacer()
-            Text("Player 2: 0")
+			Text("\(viewModel.player2Name): \(viewModel.player2Score)")
             
             
         }
@@ -24,6 +27,6 @@ struct ScoreView: View {
 }
 
 #Preview {
-    ScoreView()
+	ScoreView(viewModel: GameViewModel(with: .vsHuman))
         .background(.gray)
 }

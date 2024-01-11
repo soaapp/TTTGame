@@ -21,17 +21,21 @@ struct GameBoardView: View {
                 ForEach(0..<9) { index in
                     ZStack {
                         Circle()
-                            .fill(.red)
+                            .fill(.white)
                             .frame(width: geometry.size.width / sizeDivider - padding,
                                    height: geometry.size.width / sizeDivider - padding)
-                        Text("X")
+						BoardIndicatorView(imageName: viewModel.moves[index]?.indicator ?? "")
                     }
+					.onTapGesture {
+						viewModel.processMove(for: index)
+					}
                     
                 }
                 
             })
         }
         .padding()
+		.disabled(viewModel.isGameBoardDisabled)
     }
 }
 
