@@ -27,6 +27,7 @@ struct GameView: View {
                     Image(systemName: "xmark.circle.fill")
                         .dismissImageModifier()
                         .onTapGesture {
+							viewModel.quitTheGame()
                             dismiss()
                         }
                 }

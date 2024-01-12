@@ -28,6 +28,16 @@
 		EFD9F4A42B4F6F81009A6C5A /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4A32B4F6F81009A6C5A /* AlertItem.swift */; };
 		EFD9F4A62B4F7084009A6C5A /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4A52B4F7084009A6C5A /* GameState.swift */; };
 		EFD9F4A82B4F79E4009A6C5A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4A72B4F79E4009A6C5A /* Game.swift */; };
+		EFD9F4AA2B4F7C29009A6C5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFD9F4A92B4F7C29009A6C5A /* GoogleService-Info.plist */; };
+		EFD9F4AD2B4F7CD3009A6C5A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EFD9F4AC2B4F7CD3009A6C5A /* FirebaseFirestore */; };
+		EFD9F4AF2B4F7CD3009A6C5A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD9F4AE2B4F7CD3009A6C5A /* FirebaseFirestoreSwift */; };
+		EFD9F4B22B4F7D6B009A6C5A /* FCCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4B12B4F7D6B009A6C5A /* FCCollectionReference.swift */; };
+		EFD9F4B42B4F7E4F009A6C5A /* FirebaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4B32B4F7E4F009A6C5A /* FirebaseRepository.swift */; };
+		EFD9F4B62B5086C1009A6C5A /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4B52B5086C1009A6C5A /* AppError.swift */; };
+		EFD9F4B82B5087A0009A6C5A /* OnlineGameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4B72B5087A0009A6C5A /* OnlineGameRepository.swift */; };
+		EFD9F4BB2B508B78009A6C5A /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = EFD9F4BA2B508B78009A6C5A /* Factory */; };
+		EFD9F4BD2B508BA0009A6C5A /* ServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4BC2B508BA0009A6C5A /* ServiceDependencies.swift */; };
+		EFD9F4BF2B50BD15009A6C5A /* GameProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4BE2B50BD15009A6C5A /* GameProcess.swift */; };
 		EFF77FFB2B4CDB4D0046109E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF77FFA2B4CDB4D0046109E /* TestView.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +83,13 @@
 		EFD9F4A32B4F6F81009A6C5A /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		EFD9F4A52B4F7084009A6C5A /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		EFD9F4A72B4F79E4009A6C5A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		EFD9F4A92B4F7C29009A6C5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EFD9F4B12B4F7D6B009A6C5A /* FCCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCollectionReference.swift; sourceTree = "<group>"; };
+		EFD9F4B32B4F7E4F009A6C5A /* FirebaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepository.swift; sourceTree = "<group>"; };
+		EFD9F4B52B5086C1009A6C5A /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		EFD9F4B72B5087A0009A6C5A /* OnlineGameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineGameRepository.swift; sourceTree = "<group>"; };
+		EFD9F4BC2B508BA0009A6C5A /* ServiceDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDependencies.swift; sourceTree = "<group>"; };
+		EFD9F4BE2B50BD15009A6C5A /* GameProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProcess.swift; sourceTree = "<group>"; };
 		EFF77FFA2B4CDB4D0046109E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +98,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD9F4BB2B508B78009A6C5A /* Factory in Frameworks */,
+				EFD9F4AD2B4F7CD3009A6C5A /* FirebaseFirestore in Frameworks */,
+				EFD9F4AF2B4F7CD3009A6C5A /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +144,8 @@
 		EF46BF842B4C7B1200722161 /* TTTGame */ = {
 			isa = PBXGroup;
 			children = (
+				EFD9F4B02B4F7D58009A6C5A /* Repositories */,
+				EFD9F4A92B4F7C29009A6C5A /* GoogleService-Info.plist */,
 				EF46BFB62B4C811000722161 /* Data */,
 				EF46BFB12B4C7B9A00722161 /* Model */,
 				EF46BFB02B4C7B9600722161 /* Utility */,
@@ -131,6 +153,7 @@
 				EF46BF852B4C7B1200722161 /* TTTGameApp.swift */,
 				EF46BF892B4C7B1300722161 /* Assets.xcassets */,
 				EF46BF8B2B4C7B1300722161 /* Preview Content */,
+				EFD9F4BC2B508BA0009A6C5A /* ServiceDependencies.swift */,
 			);
 			path = TTTGame;
 			sourceTree = "<group>";
@@ -192,6 +215,8 @@
 				EFD9F4A32B4F6F81009A6C5A /* AlertItem.swift */,
 				EFD9F4A52B4F7084009A6C5A /* GameState.swift */,
 				EFD9F4A72B4F79E4009A6C5A /* Game.swift */,
+				EFD9F4B52B5086C1009A6C5A /* AppError.swift */,
+				EFD9F4BE2B50BD15009A6C5A /* GameProcess.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +227,16 @@
 				EF46BFB72B4C812400722161 /* Constant.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		EFD9F4B02B4F7D58009A6C5A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9F4B12B4F7D6B009A6C5A /* FCCollectionReference.swift */,
+				EFD9F4B32B4F7E4F009A6C5A /* FirebaseRepository.swift */,
+				EFD9F4B72B5087A0009A6C5A /* OnlineGameRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +255,11 @@
 			dependencies = (
 			);
 			name = TTTGame;
+			packageProductDependencies = (
+				EFD9F4AC2B4F7CD3009A6C5A /* FirebaseFirestore */,
+				EFD9F4AE2B4F7CD3009A6C5A /* FirebaseFirestoreSwift */,
+				EFD9F4BA2B508B78009A6C5A /* Factory */,
+			);
 			productName = TTTGame;
 			productReference = EF46BF822B4C7B1200722161 /* TTTGame.app */;
 			productType = "com.apple.product-type.application";
@@ -292,6 +332,10 @@
 				Base,
 			);
 			mainGroup = EF46BF792B4C7B1200722161;
+			packageReferences = (
+				EFD9F4AB2B4F7CD3009A6C5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EFD9F4B92B508B78009A6C5A /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = EF46BF832B4C7B1200722161 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -310,6 +354,7 @@
 			files = (
 				EF46BF8D2B4C7B1300722161 /* Preview Assets.xcassets in Resources */,
 				EF46BF8A2B4C7B1300722161 /* Assets.xcassets in Resources */,
+				EFD9F4AA2B4F7C29009A6C5A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,10 +379,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD9F4BD2B508BA0009A6C5A /* ServiceDependencies.swift in Sources */,
 				EFF77FFB2B4CDB4D0046109E /* TestView.swift in Sources */,
 				EF46BFC02B4C90BC00722161 /* GameStatusView.swift in Sources */,
+				EFD9F4B42B4F7E4F009A6C5A /* FirebaseRepository.swift in Sources */,
 				EF46BFB52B4C806000722161 /* GameMode.swift in Sources */,
 				EF46BFBE2B4C8FD500722161 /* ScoreView.swift in Sources */,
+				EFD9F4BF2B50BD15009A6C5A /* GameProcess.swift in Sources */,
 				EFD9F4A22B4F2F28009A6C5A /* GameMove.swift in Sources */,
 				EFD9F4A62B4F7084009A6C5A /* GameState.swift in Sources */,
 				EF46BFC42B4C930700722161 /* GameBoardView.swift in Sources */,
@@ -345,10 +393,13 @@
 				EFD9F49E2B4F25DD009A6C5A /* BoardIndicatorView.swift in Sources */,
 				EF46BFB32B4C7BB600722161 /* CustomButtonView.swift in Sources */,
 				EF46BFB82B4C812400722161 /* Constant.swift in Sources */,
+				EFD9F4B62B5086C1009A6C5A /* AppError.swift in Sources */,
 				EF46BF882B4C7B1200722161 /* HomeView.swift in Sources */,
+				EFD9F4B22B4F7D6B009A6C5A /* FCCollectionReference.swift in Sources */,
 				EF46BFBA2B4C86A600722161 /* GameView.swift in Sources */,
 				EFD9F4A82B4F79E4009A6C5A /* Game.swift in Sources */,
 				EF46BFC22B4C91EE00722161 /* GameViewModel.swift in Sources */,
+				EFD9F4B82B5087A0009A6C5A /* OnlineGameRepository.swift in Sources */,
 				EFD9F4A42B4F6F81009A6C5A /* AlertItem.swift in Sources */,
 				EF46BF862B4C7B1200722161 /* TTTGameApp.swift in Sources */,
 			);
@@ -682,6 +733,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EFD9F4AB2B4F7CD3009A6C5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.19.1;
+			};
+		};
+		EFD9F4B92B508B78009A6C5A /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EFD9F4AC2B4F7CD3009A6C5A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD9F4AB2B4F7CD3009A6C5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		EFD9F4AE2B4F7CD3009A6C5A /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD9F4AB2B4F7CD3009A6C5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		EFD9F4BA2B508B78009A6C5A /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD9F4B92B508B78009A6C5A /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF46BF7A2B4C7B1200722161 /* Project object */;
 }

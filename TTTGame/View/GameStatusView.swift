@@ -15,6 +15,11 @@ struct GameStatusView: View {
 		Text(viewModel.gameNotification)
             .font(.system(size: 24, weight: .bold, design: .rounded))
             .foregroundColor(.white)
+		if viewModel.showLoading {
+			ProgressView()
+				.progressViewStyle(.circular)
+				.tint(.white)
+		}
     }
 }
 

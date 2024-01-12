@@ -26,4 +26,13 @@ struct AppStrings {
 	
 	static let tryRematch = "Try Rematch"
 	
+	
+	static let yourMove = "It's your move!"
+	
+}
+
+
+struct Constants {
+	static let player1Id = "player1Id"
+	static let player2Id = "player2Id"
 }

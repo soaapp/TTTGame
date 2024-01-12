@@ -13,6 +13,9 @@ import Combine
 // Its a final class bc we are not gonna inherit or change this class
 final class GameViewModel: ObservableObject {
 	
+	let onlineRepository = OnlineGameRepository()
+	
+	// MARK: - Tic Tac Toe Grid Columns
 	let columns: [GridItem] = [
 		GridItem(.flexible()),
 		GridItem(.flexible()),
@@ -51,6 +54,12 @@ final class GameViewModel: ObservableObject {
 	@Published private(set) var alertItem: AlertItem?
 	// We need isGameBoardDisabled cause in that time we wait, we can actually put in a value before CPU or before Online Opponent
 	@Published private(set) var isGameBoardDisabled = false
+	//Online game below:
+	@Published private(set) var onlineGame: Game?
+	@Published private(set) var showLoading: Bool = false
+	
+	private var cancellables: Set<AnyCancellable> = []
+
 	
 	@Published private(set) var gameNotification = ""
 	
@@ -69,6 +78,7 @@ final class GameViewModel: ObservableObject {
 			self.players = [.player1, .cpu]
 		case .online:
 			self.players = [.player1, .player2]
+			startOnlineGame()
 		}
 		
 		gameNotification = "It's \(activePlayer.name)'s move."
@@ -83,6 +93,102 @@ final class GameViewModel: ObservableObject {
 		$players
 			.map { $0.last?.name ?? "" }
 			.assign(to: &$player2Name)
+		
+		//In order to subscribe to it, we get the onlineRepository to map the value to game, so we can update our local game when changes are made to the onlineRepository
+		onlineRepository.$game
+			.map { $0 }
+		//Holy crap what is happening below?
+			.assign(to: &$onlineGame)
+		
+		$onlineGame
+			.map { $0?.moves ?? Array(repeating: nil, count: 9) }
+			.assign(to: &$moves)
+		
+		$onlineGame
+			.map { $0?.player1Score ?? 0 }
+			.assign(to: &$player1Score)
+		
+		$onlineGame
+			.map { $0?.player2Score ?? 0 }
+			.assign(to: &$player2Score)
+		
+		$onlineGame
+			.drop(while: { $0 == nil })
+			.map { $0?.player2Id == "" }
+			.assign(to: &$showLoading)
+		
+		$onlineGame
+			.drop(while: { $0 == nil })
+			.sink { updatedGame in
+				self.syncOnlineWithLocal(onlineGame: updatedGame)
+			}
+			.store(in: &cancellables)
+		
+		
+		gameNotification = AppStrings.waitingForPlayer
+		
+	}
+	
+	private func syncOnlineWithLocal(onlineGame: Game?) {
+		guard let game = onlineGame else {
+			//show alert that other player has left
+//			print("The game is nil")
+			showAlert(for: .quit)
+			return
+		}
+		
+		if game.winningPlayerId == "0" {
+			//Draw
+			self.showAlert(for: .draw)
+			//Show alert
+		} else if game.winningPlayerId != "" {
+			self.showAlert(for: .finished)
+			//Win registered
+			//Show alert
+		}
+		
+		//Set disabled state
+		isGameBoardDisabled = game.player2Id == "" ? true : localPlayerId != game.activePlayerId
+		
+		//Set active player
+		setActivePlayerAndNotification(from: game)
+		
+		//Set notification status
+		if game.player2Id == "" {
+			gameNotification = AppStrings.waitingForPlayer
+		}
+	}
+	
+	// MARK: - Set Active Player and Notification Function
+	private func setActivePlayerAndNotification(from game: Game) {
+		if localPlayerId == game.player1Id {
+			//We are player 1
+			if localPlayerId == game.activePlayerId {
+				self.activePlayer = .player1
+				//Notification
+				gameNotification = AppStrings.yourMove
+			} else {
+				//Notification update
+				gameNotification = "It's \(activePlayer.name)'s move!"
+			}
+		} else {
+			//We are player 2
+			if localPlayerId == game.activePlayerId {
+				self.activePlayer = .player2
+				gameNotification = AppStrings.yourMove
+			} else {
+				gameNotification = "It's \(activePlayer.name)'s move!"
+			}
+			
+		}
+	}
+	
+	// MARK: - Start Online Game Function
+	private func startOnlineGame() {
+		//we put it in a TASK because joinGame() is async function but startOnlineGame() isnt
+		Task {
+			await onlineRepository.joinGame()
+		}
 	}
 	
 	// MARK: - Process Move Function
@@ -99,6 +205,8 @@ final class GameViewModel: ObservableObject {
 			showAlert(for: .finished)
 			//increase score of winner
 			increaseScore()
+			//Update online game
+			updateOnlineGame(process: .win)
 			print("\(activePlayer) is victorious!")
 			
 			
@@ -108,6 +216,8 @@ final class GameViewModel: ObservableObject {
 		/// Check for draw
 		if checkForDraw(in: moves) {
 			showAlert(for: .draw)
+			//Update online game
+			updateOnlineGame(process: .draw)
 			print("Its a draw.")
 			return
 		}
@@ -123,7 +233,45 @@ final class GameViewModel: ObservableObject {
 			computerMove()
 		}
 		
+		//Update online game
+		updateOnlineGame(process: .move)
 		gameNotification = "It's \(activePlayer.name)'s move."
+	}
+	
+	
+	// MARK: - Update Online Game Function
+	private func updateOnlineGame(process: GameProcess) {
+		guard var tempGame = onlineGame else {
+			return
+		}
+		isGameBoardDisabled = localPlayerId != tempGame.activePlayerId
+		
+		tempGame.activePlayerId = tempGame.activePlayerId == tempGame.player1Id ? tempGame.player2Id : tempGame.player1Id
+		
+		tempGame.player1Score = player1Score
+		tempGame.player2Score = player2Score
+		
+		switch process {
+		case .win:
+			tempGame.winningPlayerId = localPlayerId
+		case .draw:
+			tempGame.winningPlayerId = "0"
+			tempGame.activePlayerId = tempGame.player1Id
+		case .reset:
+			tempGame.winningPlayerId = ""
+			tempGame.activePlayerId = tempGame.player1Id
+		case .move:
+			break
+		}
+		
+		tempGame.moves = moves
+		
+		let gameToSave = tempGame
+		
+		// We are creating Task bc we are not in async function but we want to access online repo
+		Task {
+			await onlineRepository.updateGame(gameToSave)
+		}
 	}
 	
 	// MARK: - Computer Move
@@ -164,7 +312,7 @@ final class GameViewModel: ObservableObject {
 		///MARK: 3. Check if we can take the middle
 		if !isSquareOccupied(in: moves, for: centerSquare) { return centerSquare }
 		
-		///MARK: 4. Take random index from available spots
+		//MARK: 4. Take random index from available spots
 		var movePosition = Int.random(in: 0..<9)
 		while isSquareOccupied(in: moves, for: movePosition) {
 			movePosition = Int.random(in: 0..<9)
@@ -242,8 +390,17 @@ final class GameViewModel: ObservableObject {
 	func resetGame() {
 		activePlayer = .player1
 		moves = Array(repeating: nil, count: 9)
-		gameNotification = "It's \(activePlayer.name)'s move."
 		
+		if gameMode == .online {
+			updateOnlineGame(process: .reset)
+		} else {
+			gameNotification = "It's \(activePlayer.name)'s move."
+		}
+		
+	}
+	
+	func quitTheGame() {
+		onlineRepository.quitGame()
 	}
 	
 }
