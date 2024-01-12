@@ -84,6 +84,6 @@ extension Image {
 //}
 
 #Preview {
-	GameView(viewModel: GameViewModel(with: .vsHuman))
+	GameView(viewModel: GameViewModel(with: .vsHuman, onlineGameRepository: OnlineGameRepository()))
         .background(.indigo)
 }

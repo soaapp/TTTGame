@@ -27,6 +27,6 @@ struct ScoreView: View {
 }
 
 #Preview {
-	ScoreView(viewModel: GameViewModel(with: .vsHuman))
+	ScoreView(viewModel: GameViewModel(with: .vsHuman, onlineGameRepository: OnlineGameRepository()))
         .background(.gray)
 }

@@ -24,6 +24,6 @@ struct GameStatusView: View {
 }
 
 #Preview {
-	GameStatusView(viewModel: GameViewModel(with: .vsCPU))
+	GameStatusView(viewModel: GameViewModel(with: .vsCPU, onlineGameRepository: OnlineGameRepository()))
         .background(.gray)
 }

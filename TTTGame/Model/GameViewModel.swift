@@ -13,7 +13,7 @@ import Combine
 // Its a final class bc we are not gonna inherit or change this class
 final class GameViewModel: ObservableObject {
 	
-	let onlineRepository = OnlineGameRepository()
+	let onlineRepository: OnlineGameRepository
 	
 	// MARK: - Tic Tac Toe Grid Columns
 	let columns: [GridItem] = [
@@ -68,8 +68,9 @@ final class GameViewModel: ObservableObject {
 	
 	
 	// MARK: - Initializer for GameMode
-	init(with gameMode: GameMode) {
+	init(with gameMode: GameMode, onlineGameRepository: OnlineGameRepository) {
 		self.gameMode = gameMode
+		self.onlineRepository = onlineGameRepository
 		
 		switch gameMode{
 		case .vsHuman:
@@ -374,9 +375,12 @@ final class GameViewModel: ObservableObject {
 		gameNotification = state.name
 		
 		switch state {
-		case .finished, .draw, .waitingForPlayer:
+		case .finished, .waitingForPlayer:
 			let title = (state == .finished) ? "\(activePlayer.name) has won." : state.name
 			alertItem = AlertItem(title: title, message: AppStrings.tryRematch)
+		case .draw:
+			let title = state.name
+			alertItem = AlertItem(title: title, message: AppStrings.gameHasDraw)
 		case .quit:
 			let title = state.name
 			alertItem = AlertItem(title: title, message: "", buttonTitle: "OK")

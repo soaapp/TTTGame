@@ -11,7 +11,7 @@
 		EF46BF882B4C7B1200722161 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46BF872B4C7B1200722161 /* HomeView.swift */; };
 		EF46BF8A2B4C7B1300722161 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF46BF892B4C7B1300722161 /* Assets.xcassets */; };
 		EF46BF8D2B4C7B1300722161 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF46BF8C2B4C7B1300722161 /* Preview Assets.xcassets */; };
-		EF46BF972B4C7B1400722161 /* TTTGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46BF962B4C7B1400722161 /* TTTGameTests.swift */; };
+		EF46BF972B4C7B1400722161 /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46BF962B4C7B1400722161 /* GameViewModelTests.swift */; };
 		EF46BFA12B4C7B1400722161 /* TTTGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46BFA02B4C7B1400722161 /* TTTGameUITests.swift */; };
 		EF46BFA32B4C7B1400722161 /* TTTGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46BFA22B4C7B1400722161 /* TTTGameUITestsLaunchTests.swift */; };
 		EF46BFB32B4C7BB600722161 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46BFB22B4C7BB600722161 /* CustomButtonView.swift */; };
@@ -38,6 +38,10 @@
 		EFD9F4BB2B508B78009A6C5A /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = EFD9F4BA2B508B78009A6C5A /* Factory */; };
 		EFD9F4BD2B508BA0009A6C5A /* ServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4BC2B508BA0009A6C5A /* ServiceDependencies.swift */; };
 		EFD9F4BF2B50BD15009A6C5A /* GameProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4BE2B50BD15009A6C5A /* GameProcess.swift */; };
+		EFD9F4C22B50C3A1009A6C5A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD9F4C12B50C3A1009A6C5A /* FirebaseFirestoreSwift */; };
+		EFD9F4C42B51C80A009A6C5A /* MockFirebaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4C32B51C80A009A6C5A /* MockFirebaseRepository.swift */; };
+		EFD9F4C62B51CBDC009A6C5A /* FactorySetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4C52B51CBDC009A6C5A /* FactorySetup.swift */; };
+		EFD9F4C82B51CCC4009A6C5A /* OnlineGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F4C72B51CCC4009A6C5A /* OnlineGameTests.swift */; };
 		EFF77FFB2B4CDB4D0046109E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF77FFA2B4CDB4D0046109E /* TestView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +69,7 @@
 		EF46BF892B4C7B1300722161 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF46BF8C2B4C7B1300722161 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF46BF922B4C7B1400722161 /* TTTGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTTGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF46BF962B4C7B1400722161 /* TTTGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTGameTests.swift; sourceTree = "<group>"; };
+		EF46BF962B4C7B1400722161 /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
 		EF46BF9C2B4C7B1400722161 /* TTTGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTTGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF46BFA02B4C7B1400722161 /* TTTGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTGameUITests.swift; sourceTree = "<group>"; };
 		EF46BFA22B4C7B1400722161 /* TTTGameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTGameUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -90,6 +94,9 @@
 		EFD9F4B72B5087A0009A6C5A /* OnlineGameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineGameRepository.swift; sourceTree = "<group>"; };
 		EFD9F4BC2B508BA0009A6C5A /* ServiceDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDependencies.swift; sourceTree = "<group>"; };
 		EFD9F4BE2B50BD15009A6C5A /* GameProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProcess.swift; sourceTree = "<group>"; };
+		EFD9F4C32B51C80A009A6C5A /* MockFirebaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseRepository.swift; sourceTree = "<group>"; };
+		EFD9F4C52B51CBDC009A6C5A /* FactorySetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorySetup.swift; sourceTree = "<group>"; };
+		EFD9F4C72B51CCC4009A6C5A /* OnlineGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineGameTests.swift; sourceTree = "<group>"; };
 		EFF77FFA2B4CDB4D0046109E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD9F4C22B50C3A1009A6C5A /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +136,7 @@
 				EF46BF952B4C7B1400722161 /* TTTGameTests */,
 				EF46BF9F2B4C7B1400722161 /* TTTGameUITests */,
 				EF46BF832B4C7B1200722161 /* Products */,
+				EFD9F4C02B50C3A1009A6C5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,7 +178,9 @@
 		EF46BF952B4C7B1400722161 /* TTTGameTests */ = {
 			isa = PBXGroup;
 			children = (
-				EF46BF962B4C7B1400722161 /* TTTGameTests.swift */,
+				EF46BF962B4C7B1400722161 /* GameViewModelTests.swift */,
+				EFD9F4C52B51CBDC009A6C5A /* FactorySetup.swift */,
+				EFD9F4C72B51CCC4009A6C5A /* OnlineGameTests.swift */,
 			);
 			path = TTTGameTests;
 			sourceTree = "<group>";
@@ -235,8 +246,16 @@
 				EFD9F4B12B4F7D6B009A6C5A /* FCCollectionReference.swift */,
 				EFD9F4B32B4F7E4F009A6C5A /* FirebaseRepository.swift */,
 				EFD9F4B72B5087A0009A6C5A /* OnlineGameRepository.swift */,
+				EFD9F4C32B51C80A009A6C5A /* MockFirebaseRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		EFD9F4C02B50C3A1009A6C5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +297,9 @@
 				EF46BF942B4C7B1400722161 /* PBXTargetDependency */,
 			);
 			name = TTTGameTests;
+			packageProductDependencies = (
+				EFD9F4C12B50C3A1009A6C5A /* FirebaseFirestoreSwift */,
+			);
 			productName = TTTGameTests;
 			productReference = EF46BF922B4C7B1400722161 /* TTTGameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -397,6 +419,7 @@
 				EF46BF882B4C7B1200722161 /* HomeView.swift in Sources */,
 				EFD9F4B22B4F7D6B009A6C5A /* FCCollectionReference.swift in Sources */,
 				EF46BFBA2B4C86A600722161 /* GameView.swift in Sources */,
+				EFD9F4C42B51C80A009A6C5A /* MockFirebaseRepository.swift in Sources */,
 				EFD9F4A82B4F79E4009A6C5A /* Game.swift in Sources */,
 				EF46BFC22B4C91EE00722161 /* GameViewModel.swift in Sources */,
 				EFD9F4B82B5087A0009A6C5A /* OnlineGameRepository.swift in Sources */,
@@ -409,7 +432,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF46BF972B4C7B1400722161 /* TTTGameTests.swift in Sources */,
+				EFD9F4C82B51CCC4009A6C5A /* OnlineGameTests.swift in Sources */,
+				EFD9F4C62B51CBDC009A6C5A /* FactorySetup.swift in Sources */,
+				EF46BF972B4C7B1400722161 /* GameViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,6 +793,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EFD9F4B92B508B78009A6C5A /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		EFD9F4C12B50C3A1009A6C5A /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD9F4AB2B4F7CD3009A6C5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
